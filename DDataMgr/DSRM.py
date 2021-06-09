@@ -1,6 +1,6 @@
 # -------------------------------------------------------------------
 # Tools to read the SRM (a proprietary format) file.
-# Counts read by this code and the InSiteLab (a commercial software) are consistent.
+# Counts read by this code and the InSite Lab (a commercial software) are consistent.
 #
 # Author: Liang Ding
 # Email: myliang.ding@mail.utoronto.ca
