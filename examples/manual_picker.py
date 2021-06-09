@@ -15,7 +15,7 @@ def try_DMPickerWnd():
     fn = 500
     dt = 1 / fn
     save_path = "./out.csv"
-    t0 = '20210520T18:00:00, EVT1, '
+    t0 = '20210520T18:00:00, EVT1'
     num_tr = data_array.__len__()
     for tr in range(num_tr):
         data_array[tr] = data_array[tr] / np.max(np.fabs(data_array[tr]))
