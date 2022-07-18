@@ -5,11 +5,6 @@
 # Email: myliang.ding@mail.utoronto.ca
 # -------------------------------------------------------------------
 
-import sys
-
-sys.path.insert(1, '/home/dingl/repository/TimGit/DAE_github/')
-
-
 from examples.mt_uncertainty import grid_search_MT
 import pandas as pd
 import numpy as np
