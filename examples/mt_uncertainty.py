@@ -160,7 +160,7 @@ def grid_search_MT(sensor_df, source_xyz, strike, dip, rake,
             file_path = os.path.join(save_dir, "inversion_results.csv" )
             result_df.to_csv(file_path)
         except:
-            result_df.to_csv('./inversion_results.csv')
+            result_df.to_csv('inversion_results.csv')
 
     print("Task completed: 100 %")
     print('******************')
