@@ -19,30 +19,30 @@ Set the parameter <b>inv_type</b> in <a href="https://github.com/Liang-Ding/DAE/
 <li>Full moment tensor (default)</li>
 
 ```text
-set inv_type='full'
+inv_type='full'
 ```
 
 <li>Double-couple (DC)</li>
 
 ```text
-set inv_type='dc'
+inv_type='dc'
 ```
 
 
 <li>Deviatoric (DC+CLVD)</li>
 
 ```text
-set inv_type='dev'
+inv_type='dev'
 ```
 
 </ul>
 
 
-<!-- Inversion and Uncertainty quantification -->
+<!-- Inversion and uncertainty quantification -->
 <br>
 <li>Inversion and Uncertainty quantification</li>
 <ul>
-<li>Estimating the uncertainty, storing the misfit of all moment tensors (default) </li>
+<li>Estimating the uncertainty and storing the misfit of all moment tensors (default) </li>
 setting parameters in <a href="https://github.com/Liang-Ding/DAE/blob/master/examples/app_mt_uncertainty.py">./example/app_mt_uncertainty.py</a>
 
 ```text
@@ -55,7 +55,7 @@ python ./examples/app_mt_uncertainty.py
 ```
 
 <li>
-Estimating the uncertainty only 
+Only estimating the uncertainty 
 </li>
 setting parameters in <a href="https://github.com/Liang-Ding/DAE/blob/master/examples/app_mt_uncertainty.py">./example/app_mt_uncertainty.py</a>
 
