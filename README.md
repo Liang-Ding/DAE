@@ -11,14 +11,43 @@ Data processing tools for acoustic emission tests.
 <li>The 'fm_delta' in <a href="https://github.com/Liang-Ding/DAE/blob/master/examples/app_mt_uncertainty.py">./example/app_mt_uncertainty.py</a> is the interval in degree of grid search. Selecting a smaller interval (eg. 1, 2) drastically increases the computation, therefore a suitable interval, such as (5, 10), is recommended. </li>
 </ul>
 
-<li>Runing the code</li>
+<!-- moment tensor type --> 
+<br>
+<li>Moment tensor types</li>
+Set the parameter <b>inv_type</b> in <a href="https://github.com/Liang-Ding/DAE/blob/master/examples/app_mt_uncertainty.py">./example/app_mt_uncertainty.py</a> to use different types of moment tensor in the inversion. 
 <ul>
-<li>Estimating the uncertainty, storing the misfit of all moment tensors </li>
+<li>Full moment tensor (default)</li>
+
+```text
+set inv_type='full'
+```
+
+<li>Double-couple (DC)</li>
+
+```text
+set inv_type='dc'
+```
+
+
+<li>Deviatoric (DC+CLVD)</li>
+
+```text
+set inv_type='dev'
+```
+
+</ul>
+
+
+<!-- Inversion and Uncertainty quantification -->
+<br>
+<li>Inversion and Uncertainty quantification</li>
+<ul>
+<li>Estimating the uncertainty, storing the misfit of all moment tensors (default) </li>
 setting parameters in <a href="https://github.com/Liang-Ding/DAE/blob/master/examples/app_mt_uncertainty.py">./example/app_mt_uncertainty.py</a>
 
 ```text
 b_save = True
-save_dir = 'A directory where the result (a inversion_results.csv file) is stored.'
+save_dir = 'A directory where the result (a inversion_results*.csv file) is stored.'
 ```
 then running the code
 ```shell
@@ -39,6 +68,7 @@ then running the code
 python ./examples/app_mt_uncertainty.py 
 ```
 </ul>
+
 </ol>
 
 

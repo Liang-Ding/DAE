@@ -51,8 +51,69 @@ def xyz2rtp(sensor_df, soruce_arr):
     return phi, theta, phi_deg, theta_deg
 
 
-def grid_search_MT(sensor_df, source_xyz, p_polarity, fm_delta=10,
-                   b_save=False, save_dir=None):
+def grid_search_MTI(sensor_df, source_xyz, p_polarity, fm_delta=10,
+                    inv_type='full', b_save=False, save_dir=None):
+
+    '''
+    Inverting the full moment tensor solutions with first P-wave polarity and grid search and
+    Calculating the uncertainty.
+
+    :param sensor_df:   The sensor positions, (pandas.DataFrame)
+    :param source_xyz:  The source location, (numpy array.)
+    :param p_polarity:  The observed p-polarity with the same order of sensor in the sensor_df.
+    :param fm_delta:    The interval in degree of grid search.
+    :param inv_type:    The inversion type, 'full' - full moment tensor (default)
+                                            'dc'   - double-couple
+                                            'dev'  - deviatoric (dc+clvd)
+    :return:
+    '''
+
+    n_sensor = len(sensor_df)
+    # convert sensor location from cartesian to sphere coordinates.
+    phi, theta, phi_deg, theta_deg = xyz2rtp(sensor_df, source_xyz)
+
+    # Grid search to find all moment tensor
+    strike_arr = np.deg2rad(np.arange(0, 360, fm_delta))
+    dip_arr = np.deg2rad(np.arange(0, 91, fm_delta))
+    rake_arr = np.deg2rad(np.arange(-90, 91, fm_delta))
+
+    # Inversion type, default: full moment tensor.
+    _inv_type = str(inv_type).lower().strip()
+    if _inv_type.__contains__('dc'):
+        print("\n* Finding the Double-couple moment tensor solutions ... ")
+        colatitude_arr = np.deg2rad(np.array([90]))
+        longitude_arr = np.deg2rad(np.array([0]))
+    elif _inv_type.__contains__('dev'):
+        print("\n* Finding the deviatoric moment tensor solutions ... ")
+        colatitude_arr = np.deg2rad(np.array([90]))
+        longitude_arr = np.deg2rad(np.arange(-30, 31, fm_delta))
+    else:
+        print("\n* Finding the full moment tensor solutions ... ")
+        colatitude_arr = np.deg2rad(np.arange(0, 181, fm_delta))
+        longitude_arr = np.deg2rad(np.arange(-30, 31, fm_delta))
+
+    result_df = _grid_search(n_sensor, theta, phi, p_polarity,
+                 strike_arr, dip_arr, rake_arr, colatitude_arr, longitude_arr)
+
+    print("Inversion completed: 100 %")
+    print('*****Result*****')
+    uncertainty = _quantify_uncertainty(result_df)
+    if b_save and save_dir is not None:
+        if not os.path.exists(save_dir):
+            os.makedirs(save_dir)
+        try:
+            file_path = os.path.join(save_dir, "inversion_results_%s_d%.1f.csv" % (_inv_type, fm_delta))
+            result_df.to_csv(file_path)
+        except:
+            result_df.to_csv("inversion_results_%s_d%.1f.csv" % (_inv_type, fm_delta))
+
+    print("The estimated uncertainty is %.4f" % uncertainty, '%')
+    print("Done!")
+    print('******************')
+
+
+def _grid_search(n_sensor, theta, phi, p_polarity,
+                 strike_arr, dip_arr, rake_arr, colatitude_arr, longitude_arr):
 
     '''
     Inverting the full moment tensor solutions with first P-wave polarity and grid search and
@@ -65,28 +126,14 @@ def grid_search_MT(sensor_df, source_xyz, p_polarity, fm_delta=10,
     :return:
     '''
 
-    n_sensor = len(sensor_df)
-    # convert sensor location from cartesian to sphere coordinates.
-    phi, theta, phi_deg, theta_deg = xyz2rtp(sensor_df, source_xyz)
-
-    # The inversion.
-    print("\n* Finding the moment tensor solution ... ")
-    # Grid search to find all moment tensor
-    strike_arr = np.deg2rad(np.arange(0, 360, fm_delta))
-    dip_arr = np.deg2rad(np.arange(0, 91, fm_delta))
-    rake_arr = np.deg2rad(np.arange(-90, 91, fm_delta))
-    colatitude_arr = np.deg2rad(np.arange(0, 181, fm_delta))
-    longitude_arr = np.deg2rad(np.arange(-30, 31, fm_delta))
     n_record = len(strike_arr) * len(dip_arr) * len(rake_arr) * len(colatitude_arr) * len(longitude_arr)
+    log_strike = np.zeros(n_record)
+    log_dip = np.zeros(n_record)
+    log_rake = np.zeros(n_record)
+    log_colat = np.zeros(n_record)
+    log_long = np.zeros(n_record)
+    polarity_misfit = np.zeros(n_record)
 
-    count_solution = 0
-    if b_save and save_dir is not None:
-        log_strike = np.zeros(n_record)
-        log_dip = np.zeros(n_record)
-        log_rake = np.zeros(n_record)
-        log_colat = np.zeros(n_record)
-        log_long = np.zeros(n_record)
-        polarity_misfit = np.zeros(n_record)
     i_record = 0
     for s in strike_arr:
         for d in dip_arr:
@@ -114,44 +161,31 @@ def grid_search_MT(sensor_df, source_xyz, p_polarity, fm_delta=10,
                         if _n_mis > 0:
                             _misfit = _misfit / _n_mis
 
-                        # count the solution
-                        if abs(_misfit) < 1e-10:
-                            count_solution += 1
-
-                        if b_save and save_dir is not None:
-                            log_strike[i_record] = np.round(s, 4)
-                            log_dip[i_record] = np.round(d, 4)
-                            log_rake[i_record] = np.round(r, 4)
-                            log_colat[i_record] = np.round(colat, 4)
-                            log_long[i_record] = np.round(colon, 4)
-                            polarity_misfit[i_record] = _misfit
+                        log_strike[i_record] = np.round(s, 4)
+                        log_dip[i_record] = np.round(d, 4)
+                        log_rake[i_record] = np.round(r, 4)
+                        log_colat[i_record] = np.round(colat, 4)
+                        log_long[i_record] = np.round(colon, 4)
+                        polarity_misfit[i_record] = _misfit
                         i_record += 1
 
-    if b_save and save_dir is not None:
-        result_df = pd.DataFrame({
-            "strike": log_strike,
-            "dip": log_dip,
-            "rake": log_rake,
-            "colatitude": log_colat,
-            "longitude": log_long,
-            "misfit": polarity_misfit,
-        })
+    # create a DataFrame object to store the inversion result.
+    result_df = pd.DataFrame({
+        "strike": log_strike,
+        "dip": log_dip,
+        "rake": log_rake,
+        "colatitude": log_colat,
+        "longitude": log_long,
+        "misfit": polarity_misfit,
+    })
+    return result_df
 
-        if not os.path.exists(save_dir):
-            os.makedirs(save_dir)
-        try:
-            file_path = os.path.join(save_dir, "inversion_results.csv" )
-            result_df.to_csv(file_path)
-        except:
-            result_df.to_csv('inversion_results.csv')
 
-    print("Task completed: 100 %")
-    print('******************')
-    print("Result:")
-    print("%d solution(s) found!\nThe estimated uncertainty is %.2f" % (count_solution, 100 * count_solution/n_record), '%')
-    print("Done!")
-    print('******************')
-
-    return np.round(count_solution/n_record, 4)
-
+def _quantify_uncertainty(result_df):
+    '''Count the solution and calculate the uncertainty.'''
+    # count the solution
+    n_record = len(result_df)
+    n_solution = len(result_df[result_df['misfit'] < 1e-10])
+    print("%d solution(s) found! "% n_solution)
+    return np.round(n_solution / n_record * 100, 4)
 

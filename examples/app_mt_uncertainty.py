@@ -5,7 +5,7 @@
 # Email: myliang.ding@mail.utoronto.ca
 # -------------------------------------------------------------------
 
-from examples.mt_uncertainty import grid_search_MT, xyz2rtp
+from examples.mt_uncertainty import grid_search_MTI, xyz2rtp
 from MTTools.DMomentTensors import DMT_enz
 from Seismology.P_polarity import calc_p_polarity
 
@@ -73,10 +73,11 @@ def determine_uncertainty():
     # the interval of grid search
     fm_delta = 10
 
+    inv_type = 'full'  # (1) 'full': Full moment tensor, (2) 'dc': double-couple, (3) 'dev': deviatoric
     # Store the misfit by moment tensor as file if b_save=True and save_dir is set.
     b_save = True
     save_dir = './'
-    grid_search_MT(sensor_df, source_xyz, p_polarity,
+    grid_search_MTI(sensor_df, source_xyz, p_polarity, inv_type=inv_type,
                    fm_delta=fm_delta, b_save=b_save, save_dir=save_dir)
 
 
