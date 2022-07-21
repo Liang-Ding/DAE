@@ -2,7 +2,7 @@ Data processing tools for acoustic emission tests.
 
 ## Documentation
 <ol>
-<li> Estimating the uncertainty of moment tensor inversion</li>
+<li> Setting and parameters</li>
 
 <ul>
 <li> This code is tested on Linux. You may need to change the file path for '<b>sensor_location</b>' and '<b>save_dir</b>' in <a href="https://github.com/Liang-Ding/DAE/blob/master/examples/app_mt_uncertainty.py">./example/app_mt_uncertainty.py</a> if you are using Windows OS.</li>
