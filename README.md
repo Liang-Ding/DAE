@@ -7,7 +7,7 @@ Data processing tools for acoustic emission tests.
 
 You are welcome to cite our paper if using any part of the code for your work
 ```text
-Ding, L., Kravchinsky, E., Popoola, A., Qiu, Y., Goodfellow, S., Liu, Q., & Grasselli, G. (2022). 
+Ding, L., Kravchinsky, E., Popoola, A., Yang, G., Goodfellow, S., Liu, Q., & Grasselli, G. (2023). 
 Systematic uncertainty quantification of first-polarity-based moment tensor inversion 
 due to sparse coverage of sensor arrays in laboratory acoustic emission monitoring., 
 in preparation.
