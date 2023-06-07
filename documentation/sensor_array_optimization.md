@@ -27,7 +27,7 @@ designer.get_sensors_on_blocks(nsensor=20, p1x=-32.5, p1y=-32.5, p1z=-65,
 
 
 ```python
-# Get sensor locations on a block sample and save as csv file.
+# Get sensor locations on a cylinder sample and save as csv file.
 saving_filepath = "sensor_cylinder_n20.csv"
 designer.get_sensors_on_cylinders(nsensor=20, radius=50, height=100,
                                      saving_filepath=saving_filepath)
