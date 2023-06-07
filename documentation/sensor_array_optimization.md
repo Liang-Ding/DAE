@@ -5,6 +5,9 @@
 
 # Example
 
+see also ![our example](https://github.com/Liang-Ding/DAE/blob/master/examples/get_sensor_locations.py)
+
+
 ```python
 from DArrays.AEDesigner import Designer
 ```
