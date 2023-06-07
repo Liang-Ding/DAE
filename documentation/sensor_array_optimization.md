@@ -5,8 +5,7 @@
 
 # Example
 
-see also ![our example](https://github.com/Liang-Ding/DAE/blob/master/examples/get_sensor_locations.py)
-
+See also <a href="https://github.com/Liang-Ding/DAE/blob/master/examples/get_sensor_locations.py">the example</a>
 
 ```python
 from DArrays.AEDesigner import Designer
