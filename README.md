@@ -9,6 +9,7 @@ Ding, L., Yang, G., Kravchinsky, E., Popoola, A., Goodfellow, S., Liu, Q., & Gra
 Quantitative optimization for acoustic emission sensor arrangement in rock laboratory experiments., 
 in preparation.
 ```
+For those who are in particular countries or regions that may not be able to visit SeisCloud (https://seis.cloud) due to connection issues, please email me if you are interested in using our code. 
 
 <a href="https://github.com/Liang-Ding/DAE/blob/master/documentation/localization.md">Source localization</a>
 
