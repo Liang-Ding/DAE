@@ -1,5 +1,5 @@
 # -------------------------------------------------------------------
-# An example of get sensor locations from SeisCloud (https://seis.cloud)
+# An example of getting sensor locations from SeisCloud (https://seis.cloud)
 #
 # Author: Liang Ding
 # Email: myliang.ding@mail.utoronto.ca
