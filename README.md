@@ -1,5 +1,5 @@
 Tools and utilities for acoustic emission monitoring, encompassing sensor array optimization, source localization, moment tensor inversion, and more
-[Read more ...](https://liang-ding.github.io/ae/)
+[**Read more ...**](https://liang-ding.github.io/ae/)
 
 ## Documentation
 <a href="https://github.com/Liang-Ding/DAE/blob/master/documentation/sensor_array_optimization.md">Sensor array optimization</a>
