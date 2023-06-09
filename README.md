@@ -1,4 +1,4 @@
-Data processing tools for acoustic emission tests. 
+[Tools and utilities for acoustic emission monitoring, encompassing sensor array optimization, source localization, moment tensor inversion, and more](https://liang-ding.github.io/ae/)
 
 ## Documentation
 <a href="https://github.com/Liang-Ding/DAE/blob/master/documentation/sensor_array_optimization.md">Sensor array optimization</a>
