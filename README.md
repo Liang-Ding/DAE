@@ -6,7 +6,9 @@ Tools and utilities for acoustic emission monitoring, encompassing sensor array 
 
 You are welcome to cite our paper if you utilize our code to determine the sensor locations on the samples: 
 ```text
-Quantitative optimization for acoustic emission sensor arrangement in rock laboratory experiments, Liang Ding, Gang Yang, Edouard Kravchinsky, Afeez K. Popoola, Sebastian D. Goodfellow, Qinya Liu, Giovanni Grassell, submitted to Rock Mechanics and Rock Engineering (2024).
+Quantitative optimization for acoustic emission sensor arrangement in rock laboratory experiments,
+Liang Ding, Gang Yang, Edouard Kravchinsky, Afeez K. Popoola, Sebastian D. Goodfellow, Qinya Liu, Giovanni Grassell,
+submitted to Rock Mechanics and Rock Engineering (2024).
 ```
 
 <a href="https://github.com/Liang-Ding/DAE/blob/master/documentation/localization.md">Source localization</a>
@@ -16,5 +18,8 @@ Quantitative optimization for acoustic emission sensor arrangement in rock labor
 
 You are welcome to cite our paper if you utilize our code for moment tensor inversion and uncertainty estimation: 
 ```text
-Ding, L., Yang, G., Kravchinsky, E. et al. Systematic Uncertainty Quantification of First-Polarity-Based Moment Tensor Inversion Due to Sparse Coverage of Sensor Arrays in Laboratory Acoustic Emission Monitoring. Pure Appl. Geophys. 180, 3733–3752 (2023). https://doi.org/10.1007/s00024-023-03366-z
+Ding, L., Yang, G., Kravchinsky, E. et al.
+Systematic Uncertainty Quantification of First-Polarity-Based Moment Tensor Inversion
+Due to Sparse Coverage of Sensor Arrays in Laboratory Acoustic Emission Monitoring.
+Pure Appl. Geophys. 180, 3733–3752 (2023). https://doi.org/10.1007/s00024-023-03366-z
 ```
