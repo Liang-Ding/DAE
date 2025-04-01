@@ -4,7 +4,7 @@ Tools and utilities for acoustic emission monitoring, encompassing sensor array 
 ## Documentation
 <a href="https://github.com/Liang-Ding/DAE/blob/master/documentation/sensor_array_optimization.md">Sensor array optimization</a>
 
-> Please cite our work if you utilize our code or data server ([https://seis.cloud/ae/](https://seis.cloud/ae/)) for obtaining optimized sensor arrays,
+> Please cite our paper if you utilize our code or data server ([https://seis.cloud/ae/](https://seis.cloud/ae/)) for obtaining optimized sensor arrays,
 ```text
 Liang Ding, Gang Yang, Edouard Kravchinsky, Afeez K. Popoola, Sebastian D. Goodfellow, Qinya Liu, Giovanni Grassell (2025)
 Quantitative Optimization of Sensor Positions in Laboratory Acoustic Emission Experiments,
@@ -16,7 +16,7 @@ Rock Mechanics and Rock Engineering, accepted
 
 <a href="https://github.com/Liang-Ding/DAE/blob/master/documentation/mti_uncertainty.md">Moment tensor inversion and uncertainty quantification</a>
 
-You are welcome to cite our paper if you utilize our code for moment tensor inversion and uncertainty estimation: 
+> Please cite our paper if you utilize our code for moment tensor inversion: 
 ```text
 Ding, L., Yang, G., Kravchinsky, E. et al.
 Systematic Uncertainty Quantification of First-Polarity-Based Moment Tensor Inversion
