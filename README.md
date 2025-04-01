@@ -6,7 +6,7 @@ Tools and utilities for acoustic emission monitoring, encompassing sensor array 
 
 > Please cite our paper if you utilize our code or data server ([https://seis.cloud/ae/](https://seis.cloud/ae/)) for obtaining optimized sensor arrays,
 ```text
-Liang Ding, Gang Yang, Edouard Kravchinsky, Afeez K. Popoola, Sebastian D. Goodfellow, Qinya Liu, Giovanni Grassell (2025)
+Ding, L., Yang, G., Kravchinsky, E., Popoola A., Goodfellow, D., Liu, Q., Grassell, G. (2025)
 Quantitative Optimization of Sensor Positions in Laboratory Acoustic Emission Experiments,
 Rock Mechanics and Rock Engineering, accepted
 ```
