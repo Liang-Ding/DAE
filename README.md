@@ -4,11 +4,11 @@ Tools and utilities for acoustic emission monitoring, encompassing sensor array 
 ## Documentation
 <a href="https://github.com/Liang-Ding/DAE/blob/master/documentation/sensor_array_optimization.md">Sensor array optimization</a>
 
-You are welcome to cite our paper if you utilize our code to determine the sensor locations on the samples: 
+> Please cite our work if you utilize our code or data server ([https://seis.cloud/ae/](https://seis.cloud/ae/)) for obtaining optimized sensor arrays,
 ```text
-Quantitative optimization for acoustic emission sensor arrangement in rock laboratory experiments,
-Liang Ding, Gang Yang, Edouard Kravchinsky, Afeez K. Popoola, Sebastian D. Goodfellow, Qinya Liu, Giovanni Grassell,
-submitted to Rock Mechanics and Rock Engineering (2024).
+Liang Ding, Gang Yang, Edouard Kravchinsky, Afeez K. Popoola, Sebastian D. Goodfellow, Qinya Liu, Giovanni Grassell (2025)
+Quantitative Optimization of Sensor Positions in Laboratory Acoustic Emission Experiments,
+Rock Mechanics and Rock Engineering, accepted
 ```
 
 <a href="https://github.com/Liang-Ding/DAE/blob/master/documentation/localization.md">Source localization</a>
