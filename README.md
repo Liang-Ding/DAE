@@ -6,9 +6,9 @@ Tools and utilities for acoustic emission monitoring, encompassing sensor array 
 
 > Please cite our paper if you utilize our code or data server ([https://seis.cloud/ae/](https://seis.cloud/ae/)) for obtaining optimized sensor arrays,
 ```text
-Ding, L., Yang, G., Kravchinsky, E., Popoola A., Goodfellow, D., Liu, Q., Grassell, G. (2025)
-Quantitative Optimization of Sensor Positions in Laboratory Acoustic Emission Experiments,
-Rock Mechanics and Rock Engineering, accepted
+Ding, L., Yang, G., Kravchinsky, E. et al.
+Quantitative Optimization of Sensor Positions in Laboratory Acoustic Emission Experiments.
+Rock Mech Rock Eng (2025). https://doi.org/10.1007/s00603-025-04605-6
 ```
 
 <a href="https://github.com/Liang-Ding/DAE/blob/master/documentation/localization.md">Source localization</a>
